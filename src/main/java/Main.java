@@ -49,7 +49,7 @@ public class Main {
             sb1.append(line1 + "\n");
         }
         br1.close();
-       // System.out.println(sb1.toString());
+        System.out.println(sb1.toString());
         JsonObject jsonObject1 = new Gson().fromJson(sb1.toString(), JsonObject.class);
         String url=baseUrl+jsonObject1.get("nextMaze").getAsString();
 
@@ -67,18 +67,18 @@ public class Main {
             sb.append(line + "\n");
         }
         br.close();
-       // System.out.println(sb.toString());
+        System.out.println(sb.toString());
 
         //Parsing and storing Json Elements...
         JsonObject jsonObject = new Gson().fromJson(sb.toString(), JsonObject.class);
-      //  System.out.println(jsonObject.get("name"));
+        System.out.println(jsonObject.get("name"));
         name=jsonObject.get("name").toString();
         start[0]=jsonObject.get("startingPosition").getAsJsonArray().get(0).getAsInt();
         start[1]=jsonObject.get("startingPosition").getAsJsonArray().get(1).getAsInt();
         end[0]=jsonObject.get("endingPosition").getAsJsonArray().get(0).getAsInt();
         end[1]=jsonObject.get("endingPosition").getAsJsonArray().get(1).getAsInt();
         mazePath=jsonObject.get("mazePath").getAsString();
-        //System.out.println(jsonObject.get("map").getAsJsonArray());
+        System.out.println(jsonObject.get("map").getAsJsonArray());
         JsonArray jsonArray= jsonObject.get("map").getAsJsonArray();
          size=jsonArray.size();
          maze=new char[size][size];
@@ -243,7 +243,7 @@ public class Main {
             sb.append(line + "\n");
         }
         br.close();
-        //System.out.println(sb.toString());
+        System.out.println(sb.toString());
         jsonObject = new Gson().fromJson(sb.toString(), JsonObject.class);
         try{
         url=baseUrl+jsonObject.get("nextMaze").getAsString();}
